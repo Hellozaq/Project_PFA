@@ -1,0 +1,40 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: spring-node-backend
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:spring_node_db}?useSSL=false&allowPublicKeyRetrieval=true
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+
+jwt:
+  secret: ${JWT_SECRET:5f2c44c7acafd16be7d2670d9d9a4c3a5d2a49c9ec28db63f0e4f9e5b6a0c3d4}
+  expiration: 86400000 # 24 hours
+
+stripe:
+  secret-key: ${STRIPE_SECRET_KEY:sk_test_51RIypm2L2dQR8lIHeZdog4A9EIMNahfmf75F8C4E2OiIZ9TFLV8HpW4MXoDhNBRzX4INgQjZy4vjvY85fkhCSjDM00JkZxK9RC}
+
+logging:
+  level:
+    root: INFO
+    com.example.springframework: DEBUG
+    org.springframework.security: INFO
+
+node-service:
+  base-url: http://localhost:3000
+  endpoints:
+    notifications: /api/notifications
+    real-time-events: /api/events
