@@ -3,6 +3,7 @@ package com.example.springnodebackend.service;
 import com.example.springnodebackend.model.Cart;
 import com.example.springnodebackend.model.CartItem;
 import com.example.springnodebackend.model.Product;
+import com.example.springnodebackend.model.User;
 import com.example.springnodebackend.repository.CartRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,12 @@ public class CartService {
     public Cart getOrCreateCart(String userId) {
         return cartRepository.findByUserId(userId)
                 .orElseGet(() -> {
+                    // Create a new cart with a properly initialized user
+                    User user = new User();
+                    user.setId(userId);
+                    
                     Cart cart = new Cart();
-                    cart.getUser().setId(userId);
+                    cart.setUser(user);
                     return cartRepository.save(cart);
                 });
     }

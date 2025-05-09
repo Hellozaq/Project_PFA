@@ -21,9 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Sophisticated service for managing products with advanced features
- */
+
 @Service
 @RequiredArgsConstructor
 @Slf4j

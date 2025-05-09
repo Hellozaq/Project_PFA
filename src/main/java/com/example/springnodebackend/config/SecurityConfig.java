@@ -40,7 +40,8 @@ public class SecurityConfig {
             .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/**", "/api/auth/**", "/api/auth/signup", "/api/auth/signin", "/actuator/**", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
+                .requestMatchers("/auth/**", "/api/auth/**", "/api/auth/signup", "/api/auth/signin", "/actuator/**", "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html", "/api/auth/debug/**", "/api/cart/debug/**", "/api/test/token/**").permitAll()
+                .requestMatchers("/api/cart/**", "/api/checkout/**", "/api/orders/**").authenticated()
                 .anyRequest().authenticated()
             );
         
