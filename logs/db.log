@@ -6,3 +6,4 @@
 {"level":"warn","message":"Failed to connect to database. Retries left: 3","service":"database-service","timestamp":"2025-04-28T21:00:40.335Z"}
 {"level":"warn","message":"Failed to connect to database. Retries left: 2","service":"database-service","timestamp":"2025-04-28T21:02:00.391Z"}
 {"level":"warn","message":"Failed to connect to database. Retries left: 1","service":"database-service","timestamp":"2025-04-28T21:03:20.472Z"}
+{"level":"warn","message":"Failed to connect to database. Retries left: 4","service":"database-service","timestamp":"2025-05-11T19:58:49.158Z"}
